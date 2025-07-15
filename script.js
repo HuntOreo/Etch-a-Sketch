@@ -1,3 +1,5 @@
+
+
 const createBoard = (rowCount, columnCount) => {
   const board = document.querySelector('.board');
 
@@ -50,7 +52,10 @@ const wipeBoard = () => {
 };
 
 const updateColor = (elem) => {
-  elem.style.backgroundColor = 'blue';
+  const redVal = Math.floor(Math.random() * (255 - 1));
+  const greenVal = Math.floor(Math.random() * (255 - 1));
+  const blueVal = Math.floor(Math.random() * (255 - 1));
+  elem.style.backgroundColor = `rgb(${redVal}, ${greenVal}, ${blueVal})`;
 };
 
 const btn = document.querySelector('.new-board');
