@@ -1,6 +1,6 @@
 const btn = document.querySelector('.new-board');
 
-const createCanvas = (rowCount, columnCount) => {
+const createBoard = (rowCount, columnCount) => {
   const board = document.querySelector('.board');
 
   // create and render a 16x16 grid of tiles.
@@ -37,13 +37,19 @@ const updateBoard = () => {
       throw new Error('Only accepts number');
     };
 
-    createCanvas(rowAmount, columnAmount);
+    wipeBoard();
+    createBoard(rowAmount, columnAmount);
   } catch (error) {
     alert(error.message);
     return;
   };
-}
+};
+
+const wipeBoard = () => {
+  const board = document.querySelector('.board')
+  board.replaceChildren();
+};
 
 btn.addEventListener('click', updateBoard);
 
-createCanvas(16, 16);
+createBoard(16, 16);
