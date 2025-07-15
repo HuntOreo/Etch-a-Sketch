@@ -11,3 +11,23 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.board {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  display: flex;
+  gap: 2px;
+}
+
+.tile {
+  width: 40px;
+  height: 40px;
+  background-color: red;
+
+}
