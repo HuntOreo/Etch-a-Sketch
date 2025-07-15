@@ -1,6 +1,7 @@
-
+let _OPACITY = 100;
 
 const createBoard = (rowCount, columnCount) => {
+  _OPACITY = 100; // Reset opacity value.
   const board = document.querySelector('.board');
 
   // create and render a 16x16 grid of tiles.
@@ -55,7 +56,9 @@ const updateColor = (elem) => {
   const redVal = Math.floor(Math.random() * (255 - 1));
   const greenVal = Math.floor(Math.random() * (255 - 1));
   const blueVal = Math.floor(Math.random() * (255 - 1));
-  elem.style.backgroundColor = `rgb(${redVal}, ${greenVal}, ${blueVal})`;
+  elem.style.backgroundColor = `rgb(${redVal}, ${greenVal}, ${blueVal}, ${_OPACITY}%)`;
+
+  _OPACITY = _OPACITY - 1;
 };
 
 const btn = document.querySelector('.new-board');
