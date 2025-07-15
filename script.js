@@ -1,5 +1,3 @@
-const btn = document.querySelector('.new-board');
-
 const createBoard = (rowCount, columnCount) => {
   const board = document.querySelector('.board');
 
@@ -24,10 +22,6 @@ const createBoard = (rowCount, columnCount) => {
   };
 };
 
-const updateColor = (elem) => {
-  elem.style.backgroundColor = 'blue';
-};
-
 const updateBoard = () => {
   try {
     const columnAmount = Number(prompt('How many columns?'));
@@ -37,11 +31,16 @@ const updateBoard = () => {
       throw new Error('Only accepts number');
     };
 
+    if (columnAmount > 100 || rowAmount > 100) {
+      wipeBoard();
+      createBoard(100, 100);
+      throw new Error('Limit reached!');
+    };
+
     wipeBoard();
     createBoard(rowAmount, columnAmount);
   } catch (error) {
     alert(error.message);
-    return;
   };
 };
 
@@ -50,6 +49,11 @@ const wipeBoard = () => {
   board.replaceChildren();
 };
 
+const updateColor = (elem) => {
+  elem.style.backgroundColor = 'blue';
+};
+
+const btn = document.querySelector('.new-board');
 btn.addEventListener('click', updateBoard);
 
 createBoard(16, 16);
